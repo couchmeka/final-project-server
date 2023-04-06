@@ -120,14 +120,14 @@ router.get("/message", (req, res) => {
     if (userData && userData.scope === "user") {
       return res.json({
         success: true,
-        message: `User: ${userData.email}`,
+        message: ` USER: ${userData.email}`,
       });
     }
 
 		if (userData && userData.scope === "admin") {
       return res.json({
         success: true,
-        message: `I am an admin user with the email ${userData.email}`,
+        message: `ADMIN: ${userData.email}`,
       });
     }
 

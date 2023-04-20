@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { uuid } = require("uuidv4");
-const { db } = require("../mongo");
-const Ticket = require("../Models/Tickets")
 const User = require('../Models/Users')
 
 const {
@@ -96,6 +94,7 @@ router.post("/login", async (req, res) => {
     res.json({ success: false, message: error.toString() });
   }
 });
+
 
 router.get("/message", (req, res) => {
   try {

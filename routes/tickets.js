@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Ticket = require("../Models/Tickets")
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require('mongodb');
 const Comment = require("../Models/Comments");
 
 
@@ -11,18 +11,15 @@ const Comment = require("../Models/Comments");
 
 //Get All tickets
 async function getAllTickets() {
-  const client = new MongoClient(process.env.MONGO_URI);
-
   try {
-    await client.connect();
-    const db = client.db('blog_data');
-    const allTickets = await db.collection('tickets').find({}).toArray();
+    
+    const allTickets = await Ticket.find({});
     return { tickets: allTickets };
   } catch (e) {
     console.log(e);
     throw new Error('An error occurred while fetching tickets');
   } finally {
-    await client.close();
+   
   }
 }
 

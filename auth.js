@@ -19,7 +19,8 @@ const generateUserToken = (userData) => {
 		exp: exp
 	}
 	
-	const jwtSecretKey = process.env.JWT_SECRET_KEY;
+  const jwtSecretKey = process.env.JWT_SECRET_KEY;
+
   const token = jwt.sign(payload, jwtSecretKey);
   return token;
 };
@@ -34,6 +35,6 @@ const verifyToken = (token) => {
 module.exports = {
   generatePasswordHash,
   validatePassword,
-	generateUserToken,
-	verifyToken
+  generateUserToken,
+  verifyToken
 };

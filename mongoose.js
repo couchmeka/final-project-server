@@ -13,6 +13,7 @@ const mongoDB = process.env.ATLAS_URI
 async function mongooseConnect() {
     try {
       await mongoose.connect(mongoDB); 
+      console.log("db connected");
     } catch (error) {
       throw error;
     }

@@ -6,21 +6,21 @@ var logger = require('morgan');
 const cors = require("cors");
 
 require("dotenv").config();
-//connect to mongodb using mongoose (make sure you've already loaded
-//your dotenv file)
-const connectDB = require('./config/db');
+
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const ticketRouter = require('./routes/tickets')
+const ticketRouter = require('./routes/tickets');
+const { mongooseConnect } = require('./mongoose');
 
 var app = express();
 
 
 
 //connect to the DB 
-connectDB();
 
+mongooseConnect()
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
